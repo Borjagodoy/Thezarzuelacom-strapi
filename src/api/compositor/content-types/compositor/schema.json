@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "compositors",
+  "info": {
+    "singularName": "compositor",
+    "pluralName": "compositors",
+    "displayName": "Compositor"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "BirthDate": {
+      "type": "date"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Biography": {
+      "type": "blocks"
+    },
+    "zarzuelas": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::zarzuela.zarzuela",
+      "inversedBy": "compositors"
+    },
+    "Died": {
+      "type": "date"
+    },
+    "Speciality": {
+      "type": "enumeration",
+      "enum": [
+        "Opera",
+        "Zarzuela",
+        "Sinfonico"
+      ]
+    }
+  }
+}

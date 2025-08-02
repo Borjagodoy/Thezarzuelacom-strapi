@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "zarzuelas",
+  "info": {
+    "singularName": "zarzuela",
+    "pluralName": "zarzuelas",
+    "displayName": "Zarzuela"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Genero": {
+      "type": "string"
+    },
+    "Libretista": {
+      "type": "string"
+    },
+    "Estreno": {
+      "type": "string"
+    },
+    "NumerosMusicales": {
+      "type": "text"
+    },
+    "Argumento": {
+      "type": "text"
+    },
+    "compositors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::compositor.compositor",
+      "mappedBy": "zarzuelas"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "TeatroEstreno": {
+      "type": "string"
+    },
+    "Sinopsis": {
+      "type": "richtext",
+      "default": "Sinopsis y contexto Aquí va el párrafo introductorio, contextualizando la obra en su época, estilo y temática.  Personajes principales Julián: joven y apasionado oficial de imprenta que representa el carácter madrileño castizo. Susana: coqueta modistilla, símbolo del alma femenina de Lavapiés. Desarrollo y final  Aquí puedes narrar cuadro a cuadro o acto por acto, destacando giros, conflictos y resolución.  Música y temas clave Comentario sobre estilo musical, formas empleadas (romanzas, dúos, concertantes), leitmotivs, temas castizos, elementos populares..."
+    }
+  }
+}
