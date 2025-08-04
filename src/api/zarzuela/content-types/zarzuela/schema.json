@@ -52,6 +52,12 @@
     "Sinopsis": {
       "type": "richtext",
       "default": "Sinopsis y contexto Aquí va el párrafo introductorio, contextualizando la obra en su época, estilo y temática.  Personajes principales Julián: joven y apasionado oficial de imprenta que representa el carácter madrileño castizo. Susana: coqueta modistilla, símbolo del alma femenina de Lavapiés. Desarrollo y final  Aquí puedes narrar cuadro a cuadro o acto por acto, destacando giros, conflictos y resolución.  Música y temas clave Comentario sobre estilo musical, formas empleadas (romanzas, dúos, concertantes), leitmotivs, temas castizos, elementos populares..."
+    },
+    "Libretistas": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::libretista.libretista",
+      "mappedBy": "Zarzuelas"
     }
   }
 }

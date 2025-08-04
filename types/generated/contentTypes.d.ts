@@ -412,6 +412,45 @@ export interface ApiCompositorCompositor extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiLibretistaLibretista extends Struct.CollectionTypeSchema {
+  collectionName: 'libretistas';
+  info: {
+    displayName: 'Libretista';
+    pluralName: 'libretistas';
+    singularName: 'libretista';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Biography: Schema.Attribute.Blocks;
+    Birthdate: Schema.Attribute.Date;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Died: Schema.Attribute.Date;
+    Image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::libretista.libretista'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Zarzuelas: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::zarzuela.zarzuela'
+    >;
+  };
+}
+
 export interface ApiZarzuelaZarzuela extends Struct.CollectionTypeSchema {
   collectionName: 'zarzuelas';
   info: {
@@ -435,6 +474,10 @@ export interface ApiZarzuelaZarzuela extends Struct.CollectionTypeSchema {
     Genero: Schema.Attribute.String;
     Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     Libretista: Schema.Attribute.String;
+    Libretistas: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::libretista.libretista'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -963,6 +1006,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::compositor.compositor': ApiCompositorCompositor;
+      'api::libretista.libretista': ApiLibretistaLibretista;
       'api::zarzuela.zarzuela': ApiZarzuelaZarzuela;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

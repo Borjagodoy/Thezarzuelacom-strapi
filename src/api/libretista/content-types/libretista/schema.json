@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "libretistas",
+  "info": {
+    "singularName": "libretista",
+    "pluralName": "libretistas",
+    "displayName": "Libretista"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Birthdate": {
+      "type": "date"
+    },
+    "Died": {
+      "type": "date"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Biography": {
+      "type": "blocks"
+    },
+    "Zarzuelas": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::zarzuela.zarzuela",
+      "inversedBy": "Libretistas"
+    }
+  }
+}
