@@ -58,6 +58,12 @@
       "relation": "manyToMany",
       "target": "api::libretista.libretista",
       "mappedBy": "Zarzuelas"
+    },
+    "Partitura": {
+      "type": "string"
+    },
+    "Libreto": {
+      "type": "string"
     }
   }
 }
